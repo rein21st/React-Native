@@ -7,7 +7,14 @@ export const comments = (state = { errMess: null, comments: []}, action) => {
 
         case ActionTypes.COMMENTS_FAILED:
             return {...state, errMess: action.payload};
+        case ActionTypes.ADD_COMMENTS:
+        
+        let id = state.comments.length;
+        let newComment = action.payload;
+        newComment.id = state.comments.length;
 
+        let cArray =  [...state.comments, newComment];
+        return {...state, comments: cArray};
         default:
             return state;
     }
