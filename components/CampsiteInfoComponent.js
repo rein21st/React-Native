@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = {
     postFavorite: campsiteId => postFavorite(campsiteId),
-    postComment: (campsiteId, rating, author, text)=>postComment(campsiteId, rating, author, text),
+    postComment: (campsiteId, rating, author, text) => postComment(campsiteId, rating, author, text),
 };
 
 function RenderCampsite(props) {
@@ -26,14 +26,17 @@ function RenderCampsite(props) {
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
 
+    const recognizeComment = ({dx}) => (dx > 200) ? true : false;
+
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: () => {
             view.current.rubberBand(1000)
-            .then(endState => console.log(endState.finished ? 'finished' : 'canceled'));
+            .then(endState => 
+                console.log(endState.finished ? 'finished' : 'canceled')
+                );
         },
         onPanResponderEnd: (e, gestureState) => {
-        
         
             console.log('pan responder end', gestureState);
             if (recognizeDrag(gestureState)) {
@@ -49,12 +52,16 @@ function RenderCampsite(props) {
                         {
                             text: 'OK',
                             onPress: () => props.favorite ?
-                                console.log('Already set as a favorite') : props.markFavorite()
-                        }
+                                console.log('Already set as a favorite') : props.markFavorite(),
+                        },
                     ],
                     { cancelable: false }
                 );
+                
+            }else if (recognizeComment) {       
+            props.onShowModal();
             }
+
             return true;
         }
     });
