@@ -29,7 +29,7 @@ export const commentsFailed = errMess => ({
 });
 
 export const addComments = (comments) => ({
-    type: ActionTypes.ADD_COMMENTs,
+    type: ActionTypes.ADD_COMMENTS,
     payload: comments
 });
 
@@ -152,9 +152,9 @@ export const postFavorite = campsiteId => dispatch => {
 
 
 
-export const addComment = (comments) => ({
-    type: ActionTypes.ADD_COMMENTS,
-    payload: comments
+export const addComment = (comment) => ({
+    type: ActionTypes.ADD_COMMENT,
+    payload: comment
 });
 
 export const postComment = (campsiteId, rating, author, text) => dispatch => {
@@ -178,3 +178,6 @@ export const deleteFavorite = campsiteId => ({
     type: ActionTypes.DELETE_FAVORITE,
     payload: campsiteId
 }); 
+
+
+// Updated

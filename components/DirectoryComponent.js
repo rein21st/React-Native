@@ -56,3 +56,6 @@ class Directory extends Component {
 }
 
 export default connect(mapStateToProps)(Directory);
+
+
+// Updated

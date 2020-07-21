@@ -17,3 +17,6 @@ export const partners = (state = { isLoading: true,
           return state;
     }
 };
+
+
+// Updated

@@ -86,3 +86,5 @@ class Favorites extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+
+// Updated

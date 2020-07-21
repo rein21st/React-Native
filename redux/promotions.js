@@ -17,3 +17,6 @@ export const promotions = (state = { isLoading: true,
           return state;
       }
 };
+
+
+// Updated

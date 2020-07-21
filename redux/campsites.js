@@ -18,3 +18,6 @@ export const campsites = (state = { isLoading: true,
           return state;
       }
 };
+
+
+// Updated
